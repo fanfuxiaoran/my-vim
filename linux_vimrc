@@ -1,0 +1,55 @@
+set encoding=utf-8
+syntax on
+set nu
+set cursorline
+set clipboard+=unnamed
+set autowrite
+"光标立刻跳转到搜索到内容
+"set incsearch
+"set hlsearch
+"set incsearch
+"
+""去掉输入错误时的提示声音
+set noeb
+"高亮显示括号匹配
+"set showmatch
+""设置Tab长度为4空格
+set tabstop=4
+"设置自动缩进长度为4空格
+set shiftwidth=4
+""自动缩进,这个导致从外面拷贝多行以空格开头的内容时,会有多的缩进,先不设置
+set autoindent
+set cindent
+"set mouse=a
+"不要用空格代替制表符
+set noexpandtab
+""输入tab制表符时，自动替换成空格
+""set expandtab
+"设置softtabstop有一个好处是可以用Backspace键来一次删除4个空格.
+""softtabstop的值为负数,会使用shiftwidth的值,两者保持一致,方便统一缩进.
+set softtabstop=4
+"显示空格和tab键
+"set listchars=tab:>-,trail:-
+"
+""1=启动显示状态行,
+""2=总是显示状态行.设置总是显示状态行,方便看到当前文件名
+set laststatus=2
+set hlsearch
+let Tlist_Use_Right_Window=1
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'https://github.com/bitc/vim-bad-whitespace'
+Plugin 'https://github.com/farmergreg/vim-lastplace.git'
+Plugin 'https://github.com/wookayin/vim-typora.git'
+" autocomplete
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+call vundle#end()   
+filetype plugin indent on
+
+let  Tlist_Exit_OnlyWindow=1
