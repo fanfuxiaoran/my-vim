@@ -1,0 +1,33 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+export TMOUT=10000000
+
+source scl_source enable devtoolset-10
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/:${PKG_CONFIG_PATH}
+export PATH=$GOPATH/bin:/usr/local/go/bin/:/usr/local/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/gpdr/lib:/usr/local/lib:${LD_LIBRARY_PATH}
+export GOPROXY=https://goproxy.cn,direct
+alias pp='ps -ef | grep postgres'
+source /etc/profile.d/bash_completion.sh
+alias mc='make create-demo-cluster'
+alias ch='cd ~/workspace/hashdata-lightning'
+source ~/install/cbdb/greenplum_path.sh
+#source ~/install/gpdb/greenplum_path.sh
+source /home/gpadmin/workspace/cloudberry/gpAux/gpdemo/gpdemo-env.sh
+#source /home/gpadmin/workspace/hashdata-lightning/gpAux/gpdemo/gpdemo-env.sh
+#source /usr/local/hashdata-lightning/greenplum_path.sh
+alias cl='cd ${MASTER_DATA_DIRECTORY}/log'
+. "$HOME/.cargo/env"
+export PATH=/usr/local/protobuf-dev/bin:$PATH
+export PKG_CONFIG_PATH=/usr/local/protobuf-dev/lib/pkgconfig
+#export PATH=${PATH}:/usr/local/gpdr/bin
